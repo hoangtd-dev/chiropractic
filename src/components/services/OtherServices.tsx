@@ -1,0 +1,34 @@
+import Link from "next/link";
+import Icon from "@/components/ui/Icon";
+import Section from "@/components/ui/Section";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { SERVICES } from "@/lib/services-content";
+
+export interface OtherServicesProps {
+  currentSlug: string;
+}
+
+export default function OtherServices({ currentSlug }: OtherServicesProps) {
+  const others = SERVICES.filter((service) => service.slug !== currentSlug);
+  if (!others.length) return null;
+
+  return (
+    <Section spacing="sm">
+      <SectionHeading title="Other Services" align="left" data-aos="fade-up" />
+
+      <ul className="mt-8 flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="80">
+        {others.map((service) => (
+          <li key={service.slug}>
+            <Link
+              href={`/services/${service.slug}`}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-primary transition-colors hover:border-accent hover:text-accent"
+            >
+              <Icon name={service.icon} className="h-4 w-4" />
+              {service.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  );
+}
