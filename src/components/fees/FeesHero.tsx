@@ -4,7 +4,7 @@ import { FEES_INTRO } from "@/lib/fees-content";
 export default function FeesHero() {
   return (
     <Section spacing="sm">
-      <div className="max-w-3xl" data-aos="fade-up">
+      <div className="max-w-3xl text-center sm:text-left" data-aos="fade-up">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
           Fees
         </p>

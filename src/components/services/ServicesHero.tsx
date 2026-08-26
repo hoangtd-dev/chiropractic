@@ -3,7 +3,7 @@ import Section from "@/components/ui/Section";
 export default function ServicesHero() {
   return (
     <Section spacing="sm">
-      <div className="max-w-3xl" data-aos="fade-up">
+      <div className="max-w-3xl text-center sm:text-left" data-aos="fade-up">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
           Services
         </p>

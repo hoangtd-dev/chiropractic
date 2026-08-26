@@ -8,11 +8,11 @@ export default function ContactSplit() {
       spacing="sm"
       containerClassName="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16"
     >
-      <div data-aos="fade-up">
+      <div data-aos="fade-right">
         <ContactDetails />
       </div>
 
-      <div className="lg:h-full" data-aos="fade-up" data-aos-delay="80">
+      <div className="lg:h-full" data-aos="fade-left" data-aos-delay="80">
         <ContactMap />
       </div>
     </Section>

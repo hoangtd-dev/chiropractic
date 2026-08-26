@@ -176,3 +176,33 @@
     scroll-behavior: auto !important;
   }
 }
+
+@media (max-width: 1023.98px) {
+  [data-aos="fade-left"],
+  [data-aos="fade-right"],
+  [data-aos="fade-down-left"],
+  [data-aos="fade-down-right"],
+  [data-aos="fade-up-left"],
+  [data-aos="fade-up-right"],
+  [data-aos="slide-left"],
+  [data-aos="slide-right"],
+  [data-aos^="zoom"],
+  [data-aos="flip-left"],
+  [data-aos="flip-right"] {
+    transform: translate3d(0, 100px, 0) !important;
+  }
+
+  [data-aos="fade-left"].aos-animate,
+  [data-aos="fade-right"].aos-animate,
+  [data-aos="fade-down-left"].aos-animate,
+  [data-aos="fade-down-right"].aos-animate,
+  [data-aos="fade-up-left"].aos-animate,
+  [data-aos="fade-up-right"].aos-animate,
+  [data-aos="slide-left"].aos-animate,
+  [data-aos="slide-right"].aos-animate,
+  [data-aos^="zoom"].aos-animate,
+  [data-aos="flip-left"].aos-animate,
+  [data-aos="flip-right"].aos-animate {
+    transform: translate3d(0, 0, 0) !important;
+  }
+}

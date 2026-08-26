@@ -1,6 +1,8 @@
 import {
   ADDRESS,
   CONTACT,
+  GEO,
+  MAP_DIRECTIONS_URL,
   OPENING_HOURS_SPEC,
   PHONE_E164,
   PRACTITIONER,
@@ -41,6 +43,12 @@ export function practiceSchema() {
       postalCode: ADDRESS.postcode,
       addressCountry: ADDRESS.country,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: GEO.latitude,
+      longitude: GEO.longitude,
+    },
+    hasMap: MAP_DIRECTIONS_URL,
     areaServed: {
       "@type": "AdministrativeArea",
       name: `${ADDRESS.suburb}, ${ADDRESS.state}`,

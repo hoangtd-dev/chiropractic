@@ -71,6 +71,20 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   check: <path d="M6 12.5l4 4 8-9" />,
+  facebook: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
+      <path d="M15 8h-1.6A1.9 1.9 0 0 0 11.5 10v2M9.8 12.4h4" />
+      <path d="M11.5 12v8.5" />
+    </>
+  ),
+  instagram: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+      <circle cx="12" cy="12" r="3.8" />
+      <circle cx="16.7" cy="7.3" r="0.9" />
+    </>
+  ),
 };
 
 export default function Icon({ name, className = "h-6 w-6" }: IconProps) {

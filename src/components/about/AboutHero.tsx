@@ -5,7 +5,7 @@ import { SITE_TAGLINE } from "@/lib/constants";
 export default function AboutHero() {
   return (
     <Section spacing="sm">
-      <div className="max-w-3xl" data-aos="fade-up">
+      <div className="max-w-3xl text-center sm:text-left" data-aos="fade-up">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
           {ABOUT_INTRO.eyebrow}
         </p>
@@ -14,7 +14,7 @@ export default function AboutHero() {
         </h1>
         <p className="mt-4 text-lg italic text-accent">{SITE_TAGLINE}</p>
 
-        <div className="mt-6 space-y-4 text-base leading-relaxed text-muted sm:text-lg">
+        <div className="mt-6 space-y-4 text-left text-base leading-relaxed text-muted sm:text-lg">
           {ABOUT_INTRO.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}

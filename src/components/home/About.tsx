@@ -1,6 +1,7 @@
 import Icon from "@/components/ui/Icon";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Section from "@/components/ui/Section";
-import { PRACTITIONER } from "@/lib/constants";
+import { ABOUT_IMAGE, PRACTITIONER } from "@/lib/constants";
 
 export default function About() {
   return (
@@ -11,13 +12,17 @@ export default function About() {
     >
       <div data-aos="fade-right">
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-primary/10 ring-1 ring-border">
-          <div className="absolute inset-0 flex items-center justify-center text-sm text-muted">
-            Portrait
-          </div>
+          <ResponsiveImage
+            image={ABOUT_IMAGE}
+            alt={`${PRACTITIONER.name}, ${PRACTITIONER.role}`}
+            fill
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="object-cover"
+          />
         </div>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="100">
+      <div data-aos="fade-left" data-aos-delay="100">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
           About
         </p>

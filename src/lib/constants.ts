@@ -1,4 +1,9 @@
-import type { NavLink, OpeningHour, SocialLink } from "@/types";
+import type {
+  NavLink,
+  OpeningHour,
+  ResponsiveImageSet,
+  SocialLink,
+} from "@/types";
 
 export const SITE_NAME = "Bodyology Chiropractic";
 
@@ -11,7 +16,18 @@ export const SITE_URL = "https://www.bodyologychiropractic.com.au";
 
 export const BOOKING_URL = "#booking";
 
-export const HERO_IMAGE = "/images/hero.jpg";
+export const HERO_IMAGE: ResponsiveImageSet = {
+  base: "/images/hero/hero",
+  ext: "webp",
+  widths: [640, 1024, 1600, 2400],
+  mobile: { base: "/images/hero/hero-mobile", widths: [640, 1280] },
+};
+
+export const ABOUT_IMAGE: ResponsiveImageSet = {
+  base: "/images/about/portrait",
+  ext: "webp",
+  widths: [480, 960],
+};
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
@@ -81,6 +97,10 @@ export const OPENING_HOURS_SPEC = [
 
 export const MAP_QUERY = `${SITE_NAME}, ${CONTACT.addressLines.join(", ")}`;
 
-export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&output=embed`;
+export const GEO = { latitude: -33.732148, longitude: 150.9465519 };
 
-export const MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(MAP_QUERY)}`;
+const GEO_QUERY = `${GEO.latitude},${GEO.longitude}`;
+
+export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(GEO_QUERY)}&z=17&output=embed`;
+
+export const MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(GEO_QUERY)}`;

@@ -10,7 +10,7 @@ export interface ServiceDetailHeroProps {
 export default function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
   return (
     <Section spacing="sm">
-      <div className="max-w-3xl" data-aos="fade-up">
+      <div className="max-w-3xl text-center sm:text-left" data-aos="fade-up">
         <Link
           href="/services"
           className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
@@ -19,7 +19,7 @@ export default function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
           All services
         </Link>
 
-        <span className="mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-surface text-primary">
+        <span className="mx-auto mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-surface text-primary sm:mx-0">
           <Icon name={service.icon} className="h-7 w-7" />
         </span>
 

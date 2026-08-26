@@ -8,7 +8,7 @@ export interface NavLink {
 export interface SocialLink {
   label: string;
   href: string;
-  icon?: string;
+  icon: IconName;
 }
 
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "outline-light";
@@ -43,7 +43,9 @@ export type IconName =
   | "pin"
   | "clock"
   | "mail"
-  | "check";
+  | "check"
+  | "facebook"
+  | "instagram";
 
 export interface ProseContent {
   id: string;
@@ -88,4 +90,11 @@ export interface PageMetaInput {
   title: string;
   description: string;
   path: string;
+}
+
+export interface ResponsiveImageSet {
+  base: string;
+  ext: "webp" | "jpg" | "png";
+  widths: number[];
+  mobile?: { base: string; widths: number[] };
 }
