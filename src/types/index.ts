@@ -22,11 +22,17 @@ export interface Service {
   title: string;
   description: string;
   icon: IconName;
+  image?: ResponsiveImageSet;
   detail?: ServiceDetail;
 }
 
+export interface ServiceDetailSection {
+  label: string;
+  body: string;
+}
+
 export interface ServiceDetail {
-  intro?: string;
+  sections?: ServiceDetailSection[];
   paragraphs?: string[];
   itemsLabel?: string;
   items?: string[];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const WIDGET_NAME = "CHM-iconpractice";
 const QUEUE_KEY = "w1";
@@ -18,7 +18,36 @@ type WidgetApi = ((method: string, config?: unknown) => void) & {
 };
 
 export default function BookingWidget() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const [shouldLoad, setShouldLoad] = useState(false);
+
   useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "600px" },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoad) return;
+
     const w = window as unknown as Record<string, unknown>;
 
     w[WIDGET_NAME] = QUEUE_KEY;
@@ -38,11 +67,11 @@ export default function BookingWidget() {
     }
 
     (w[QUEUE_KEY] as WidgetApi)("init", CONFIG);
-  }, []);
+  }, [shouldLoad]);
 
   return (
-    <div id={TARGET_ID} className="min-h-[36rem] w-full">
-      Loading...
+    <div ref={containerRef} id={TARGET_ID} className="min-h-[36rem] w-full">
+      <p className="py-12 text-center text-sm text-muted">Loading booking calendar…</p>
     </div>
   );
 }

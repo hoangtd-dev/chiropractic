@@ -16,11 +16,17 @@ export const SITE_URL = "https://www.bodyologychiropractic.com.au";
 
 export const BOOKING_URL = "#booking";
 
+export const LOGO = {
+  src: "/brand/logo.webp",
+  width: 440,
+  height: 114,
+};
+
 export const HERO_IMAGE: ResponsiveImageSet = {
   base: "/images/hero/hero",
   ext: "webp",
   widths: [640, 1024, 1600, 2400],
-  mobile: { base: "/images/hero/hero-mobile", widths: [640, 1280] },
+  mobile: { base: "/images/hero/hero-mobile", widths: [640, 960, 1280] },
 };
 
 export const ABOUT_IMAGE: ResponsiveImageSet = {

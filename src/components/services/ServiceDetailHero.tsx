@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Icon from "@/components/ui/Icon";
+import ServiceMedia from "@/components/services/ServiceMedia";
 import Section from "@/components/ui/Section";
 import type { Service } from "@/types";
 
@@ -10,25 +10,32 @@ export interface ServiceDetailHeroProps {
 export default function ServiceDetailHero({ service }: ServiceDetailHeroProps) {
   return (
     <Section spacing="sm">
-      <div className="max-w-3xl text-center sm:text-left" data-aos="fade-up">
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
-        >
-          <span aria-hidden="true">&larr;</span>
-          All services
-        </Link>
+      <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="text-center sm:text-left" data-aos="fade-up">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
+          >
+            <span aria-hidden="true">&larr;</span>
+            All services
+          </Link>
 
-        <span className="mx-auto mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-surface text-primary sm:mx-0">
-          <Icon name={service.icon} className="h-7 w-7" />
-        </span>
+          <h1 className="mt-6 text-3xl font-semibold tracking-tight text-balance text-primary sm:text-4xl lg:text-5xl">
+            {service.title}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            {service.description}
+          </p>
+        </div>
 
-        <h1 className="mt-5 text-3xl font-semibold tracking-tight text-balance text-primary sm:text-4xl lg:text-5xl">
-          {service.title}
-        </h1>
-        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-          {service.detail?.intro ?? service.description}
-        </p>
+        <div data-aos="fade-up" data-aos-delay="80">
+          <ServiceMedia
+            service={service}
+            aspect="aspect-[4/5]"
+            sizes="(min-width: 1024px) 45vw, 92vw"
+            className="rounded-2xl"
+          />
+        </div>
       </div>
     </Section>
   );

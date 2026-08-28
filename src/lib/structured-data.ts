@@ -93,7 +93,7 @@ export function serviceSchema(service: Service) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: service.title,
-    description: service.detail?.intro ?? service.description,
+    description: service.description,
     url: absolute(`/services/${service.slug}`),
     serviceType: service.title,
     provider: { "@id": PRACTICE_ID },

@@ -7,15 +7,37 @@ export interface ServiceDetailBodyProps {
 }
 
 export default function ServiceDetailBody({ service }: ServiceDetailBodyProps) {
-  const { paragraphs, itemsLabel, items } = service.detail ?? {};
-  if (!paragraphs?.length && !items?.length) return null;
+  const { sections, paragraphs, itemsLabel, items } = service.detail ?? {};
+  if (!sections?.length && !paragraphs?.length && !items?.length) return null;
 
   return (
     <Section spacing="sm" tone="surface">
       <div className="max-w-2xl">
+        {sections?.length ? (
+          <dl className="space-y-8">
+            {sections.map((section, index) => (
+              <div
+                key={section.label}
+                data-aos="fade-up"
+                data-aos-delay={index * 80}
+                className="border-l-2 border-accent pl-5 sm:pl-6"
+              >
+                <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  {section.label}
+                </dt>
+                <dd className="mt-3 text-base leading-relaxed text-muted sm:text-lg">
+                  {section.body}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
+
         {paragraphs?.length ? (
           <div
-            className="space-y-4 text-base leading-relaxed text-muted sm:text-lg"
+            className={`space-y-4 text-base leading-relaxed text-muted sm:text-lg ${
+              sections?.length ? "mt-8" : ""
+            }`}
             data-aos="fade-up"
           >
             {paragraphs.map((paragraph) => (

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import AOSProvider from "@/components/animations/AOSProvider";
@@ -12,7 +12,6 @@ import { buildMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
 export function generateMetadata(): Metadata {
   return {
@@ -31,7 +30,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-AU" className={`${inter.variable} ${mono.variable} h-full`}>
+    <html lang="en-AU" className={`${inter.variable} h-full`}>
       <head>
         <link rel="preconnect" href="https://app.iconpractice.com" />
         <link rel="dns-prefetch" href="https://js.stripe.com" />

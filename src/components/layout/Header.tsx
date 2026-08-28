@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Navigation from "@/components/layout/Navigation";
-import { SITE_NAME } from "@/lib/constants";
+import { LOGO, SITE_NAME } from "@/lib/constants";
 
 export default function Header() {
   return (
@@ -8,12 +8,11 @@ export default function Header() {
       <div className="container-page flex h-14 items-center justify-between md:h-16">
         <Link href="/" className="flex items-center">
           <img
-            src="/brand/logo.webp"
+            src={LOGO.src}
             alt={SITE_NAME}
-            width={440}
-            height={114}
-            fetchPriority="high"
-            decoding="sync"
+            width={LOGO.width}
+            height={LOGO.height}
+            decoding="async"
             draggable={false}
             className="h-10 w-auto select-none object-contain sm:h-12 md:h-14"
           />

@@ -24,7 +24,7 @@ export async function generateMetadata({
 
   return buildMetadata(
     service.title,
-    service.detail?.intro ?? service.description,
+    service.description,
     `/services/${service.slug}`,
   );
 }

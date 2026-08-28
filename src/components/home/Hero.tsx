@@ -1,17 +1,38 @@
 import Button from "@/components/ui/Button";
 import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Icon from "@/components/ui/Icon";
+import { buildMobileSrcSet, buildSrcSet } from "@/lib/images";
 import {
   ADDRESS,
   BOOKING_URL,
   CONTACT,
   HERO_IMAGE,
+  LOGO,
   SITE_DESCRIPTION,
+  SITE_NAME,
 } from "@/lib/constants";
 
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-surface">
+      <link
+        rel="preload"
+        as="image"
+        href={`${HERO_IMAGE.mobile!.base}-960.${HERO_IMAGE.ext}`}
+        imageSrcSet={buildMobileSrcSet(HERO_IMAGE)}
+        imageSizes="100vw"
+        media="(max-width: 640px)"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={`${HERO_IMAGE.base}-1600.${HERO_IMAGE.ext}`}
+        imageSrcSet={buildSrcSet(HERO_IMAGE)}
+        imageSizes="100vw"
+        media="(min-width: 641px)"
+        fetchPriority="high"
+      />
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <ResponsiveImage
           image={HERO_IMAGE}
@@ -25,20 +46,24 @@ export default function Hero() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-surface/90 md:bg-surface/50 lg:bg-transparent lg:bg-gradient-to-r lg:from-surface lg:from-25% lg:via-surface/25 lg:via-55% lg:to-transparent"
+        className="absolute inset-0 -z-10 bg-surface/25  lg:bg-transparent lg:bg-gradient-to-r lg:from-surface lg:from-25% lg:via-surface/25 lg:via-55% lg:to-transparent"
       />
 
       <div className="container-page section-y-lg">
         <div className="max-w-xl text-center sm:text-left lg:max-w-[34rem]" data-aos="fade-up">
-          <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-balance text-primary sm:text-5xl lg:text-6xl">
-            <span className="block text-sm font-semibold uppercase tracking-[0.2em] text-accent sm:text-base">
+          <h1 className="flex flex-col items-center sm:items-start">
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent sm:text-base">
               {`Chiropractor in ${ADDRESS.suburb}, ${ADDRESS.state}`}
             </span>
-            <span className="mt-4 block">
-              Better <span className="text-accent">Flow.</span>
-              <br />
-              Better <span className="text-accent">Life.</span>
-            </span>
+            <img
+              src={LOGO.src}
+              alt={SITE_NAME}
+              width={LOGO.width}
+              height={LOGO.height}
+              decoding="async"
+              draggable={false}
+              className="mt-6 h-20 w-auto max-w-full select-none object-contain sm:h-24 lg:h-28"
+            />
           </h1>
 
           <span aria-hidden="true" className="mx-auto mt-8 block h-px w-28 bg-accent sm:mx-0" />
