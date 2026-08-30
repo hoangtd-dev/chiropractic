@@ -2,8 +2,8 @@ import type { Service, ServiceDetailSection } from "@/types";
 
 const PHOTO_WIDTHS = [400, 640, 940];
 
-function servicePhoto(name: string): Service["image"] {
-  return { base: `/images/services/${name}`, ext: "webp", widths: PHOTO_WIDTHS };
+function servicePhoto(name: string, widths: number[] = PHOTO_WIDTHS): Service["image"] {
+  return { base: `/images/services/${name}`, ext: "webp", widths };
 }
 
 function detailSections(
@@ -25,7 +25,8 @@ export const SERVICES: Service[] = [
     description:
       "Controlled, targeted movement applied to a joint to restore mobility and ease stiffness.",
     icon: "spine",
-    image: servicePhoto("cupping-therapy"),
+    // Landscape source, so the 4:5 crop stops at 752px rather than 940px.
+    image: servicePhoto("chiropractic-adjustment", [400, 640, 752]),
     detail: {
       sections: detailSections(
         "A chiropractic adjustment is a controlled, targeted movement applied to a joint of the spine or another area of the body.",
@@ -85,7 +86,7 @@ export const SERVICES: Service[] = [
     description:
       "Focused friction on fascia to restore the glide between layers of connective tissue.",
     icon: "fascia",
-    image: servicePhoto("soft-tissue-work"),
+    image: servicePhoto("fascial-manipulation"),
     detail: {
       sections: detailSections(
         "Fascial manipulation is a hands-on treatment that focuses on fascia — the connective tissue that surrounds and links muscles and other structures throughout the body.",

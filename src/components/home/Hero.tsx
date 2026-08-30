@@ -1,13 +1,13 @@
 import Button from "@/components/ui/Button";
 import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Icon from "@/components/ui/Icon";
-import { buildMobileSrcSet, buildSrcSet } from "@/lib/images";
+import { buildMobileSrcSet, buildSrcSet, imageSrc } from "@/lib/images";
 import {
   ADDRESS,
   BOOKING_URL,
   CONTACT,
   HERO_IMAGE,
-  LOGO,
+  HERO_LOGO,
   SITE_DESCRIPTION,
   SITE_NAME,
 } from "@/lib/constants";
@@ -50,36 +50,39 @@ export default function Hero() {
       />
 
       <div className="container-page section-y-lg">
-        <div className="max-w-xl text-center sm:text-left lg:max-w-[34rem]" data-aos="fade-up">
-          <h1 className="flex flex-col items-center sm:items-start">
+        <div className="max-w-xl text-center lg:max-w-[34rem]" data-aos="fade-up">
+          <h1 className="flex flex-col items-center">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent sm:text-base">
               {`Chiropractor in ${ADDRESS.suburb}, ${ADDRESS.state}`}
             </span>
             <img
-              src={LOGO.src}
+              src={imageSrc(HERO_LOGO, 640)}
+              srcSet={buildSrcSet(HERO_LOGO)}
+              sizes="(min-width: 1024px) 20rem, (min-width: 640px) 17rem, 14rem"
               alt={SITE_NAME}
-              width={LOGO.width}
-              height={LOGO.height}
+              width={1072}
+              height={678}
+              loading="eager"
               decoding="async"
               draggable={false}
-              className="mt-6 h-20 w-auto max-w-full select-none object-contain sm:h-24 lg:h-28"
+              className="mt-6 h-auto w-56 max-w-full select-none object-contain sm:w-68 lg:w-80"
             />
           </h1>
 
-          <span aria-hidden="true" className="mx-auto mt-8 block h-px w-28 bg-accent sm:mx-0" />
+          <span aria-hidden="true" className="mx-auto mt-8 block h-px w-28 bg-accent" />
 
-          <p className="mx-auto mt-8 max-w-md text-base leading-relaxed text-primary/80 sm:mx-0 sm:text-lg">
+          <p className="mx-auto mt-8 max-w-md text-base leading-relaxed text-primary/80 sm:text-lg">
             {SITE_DESCRIPTION}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <Button href={BOOKING_URL} className="text-base uppercase" fullWidthOnMobile>
               <Icon name="calendar" className="mr-3 h-5 w-5" />
               Book online
             </Button>
           </div>
 
-          <p className="mt-8 flex items-center justify-center gap-2 text-sm font-medium text-primary sm:justify-start">
+          <p className="mt-8 flex items-center justify-center gap-2 text-sm font-medium text-primary">
             <Icon name="pin" className="h-5 w-5 text-accent" />
             {CONTACT.region}
           </p>

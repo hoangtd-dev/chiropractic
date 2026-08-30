@@ -22,6 +22,12 @@ export const LOGO = {
   height: 114,
 };
 
+export const HERO_LOGO: ResponsiveImageSet = {
+  base: "/brand/logo-mark",
+  ext: "webp",
+  widths: [320, 480, 640],
+};
+
 export const HERO_IMAGE: ResponsiveImageSet = {
   base: "/images/hero/hero",
   ext: "webp",
@@ -57,9 +63,11 @@ export const PRACTITIONER = {
     "We take the time to find the root cause of pain and create a treatment plan tailored to each person's goals.",
   ],
   credentials: [
+    "Bachelor of Chiropractic Science",
     "Master of Chiropractic – Macquarie University",
     "AHPRA Registered – Chiropractor",
     "Dry Needling Certified",
+    "Fascial Manipulation Certified",
     "Committed to ongoing education and patient outcomes",
   ],
 };
